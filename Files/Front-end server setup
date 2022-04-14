@@ -1,0 +1,19 @@
+sudo mkdir -p /var/www/api.luckyblock.brugu.io/html
+sudo chown -R $USER:$USER /var/www/api.luckyblock.brugu.io/html
+sudo chmod -R 755 /var/www
+sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/api.luckyblock.brugu.io
+sudo ln -s /etc/nginx/sites-available/api.luckyblock.brugu.io /etc/nginx/sites-enabled/
+sudo nano /etc/nginx/sites-available/api.luckyblock.brugu.io
+
+server {
+        root /home/nftmarket/luckyblock-admin/build;
+        index index.html index.htm index.nginx-debian.html;
+
+        server_name luckyblock-admin.brugu.io www.luckyblock-admin.brugu.io;
+        location / {
+                try_files $uri $uri/ /index.html;
+        }
+	location /dev {
+         	proxy_pass https://dev.luckyblock.brugu.io;
+        }
+}
