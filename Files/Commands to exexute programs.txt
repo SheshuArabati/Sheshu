@@ -29,8 +29,9 @@ java classname --> Execution
 
 NodeJS:
 Create commands:
-npm i express-generator
-npx express --view=ejs sample
+mkdir my-app
+cd my-app
+npm init -y
 Run commands:
 node filename
 npx nodemon filename
