@@ -1,19 +1,19 @@
-sudo mkdir -p /var/www/api.luckyblock.brugu.io/html
-sudo chown -R $USER:$USER /var/www/api.luckyblock.brugu.io/html
+sudo mkdir -p /var/www/betting.winwincoins.com/html
+sudo chown -R $USER:$USER /var/www/betting.winwincoins.com/html
 sudo chmod -R 755 /var/www
-sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/api.luckyblock.brugu.io
-sudo ln -s /etc/nginx/sites-available/api.luckyblock.brugu.io /etc/nginx/sites-enabled/
-sudo nano /etc/nginx/sites-available/api.luckyblock.brugu.io
+sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/betting.winwincoins.com
+sudo ln -s /etc/nginx/sites-available/betting.winwincoins.com /etc/nginx/sites-enabled/
+sudo nano /etc/nginx/sites-available/betting.winwincoins.com
 
 server {
-        root /home/nftmarket/luckyblock-admin/build;
+        root /home/dev/wwc-web-admin/build;
         index index.html index.htm index.nginx-debian.html;
 
-        server_name luckyblock-admin.brugu.io www.luckyblock-admin.brugu.io;
+        server_name betting.winwincoins.com www.betting.winwincoins.com;
         location / {
                 try_files $uri $uri/ /index.html;
         }
-	location /dev {
-         	proxy_pass https://dev.luckyblock.brugu.io;
+        location /dev/v1 {
+                proxy_pass http://localhost:9100;
         }
 }
