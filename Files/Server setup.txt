@@ -9,9 +9,9 @@ Server setup
 	usermod -aG sudo {username}
 3. Enter into user
 	su – {username}
-4. Install ngnix
+4. Install nginx
 	sudo apt update
-	sudo apt install ngnix
+	sudo apt install nginx
 5. Install the required environment (Ex: Docker, NodeJS, etc...)
 6. Clone the code into server from GitLab
 7. To open the files
